@@ -81,7 +81,7 @@ class NPC extends \pocketmine\level\Location
 	{
 		if($packet->pid()==\pocketmine\network\protocol\Info::INTERACT_PACKET)
 		{
-			if(NPC::$packet_hash!=spl_object_hash($packet))
+			if(NPC::$packet_hash!=spl_object_hash($packet) && && $packet->action == \pocketmine\network\protocol\InteractPacket::ACTION_LEFT_CLICK)
 			{
 				NPC::$packet_hash=spl_object_hash($packet);
 				foreach(NPC::$pool as $npc)
